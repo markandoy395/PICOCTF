@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice - CTF Platform</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo"></div>
+        <ul class="nav-links">
+            <li><a href="#dashboard">Dashboard</a></li>
+            <li><a href="#practice" class="active">Practice</a></li>
+            <li><a href="#competition">Competition</a></li>
+            <li><a href="#profile">Profile</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="progress-tracker">
+            <div class="progress-header">
+                <span>📊</span>
+                <span>Progress Tracker</span>
+            </div>
+
+            <div class="progress-content">
+                <div>
+                    <div class="category-label">Category</div>
+                    <select class="category-select" id="categorySelect">
+                        <option value="overall">Overall</option>
+                        <option value="web">Web Exploitation</option>
+                        <option value="crypto">Cryptography</option>
+                        <option value="forensics">Forensics</option>
+                        <option value="reverse">Reverse Engineering</option>
+                        <option value="binary">Binary Exploitation</option>
+                    </select>
+                </div>
+
+                <div>
+                    <div class="category-label" style="margin-bottom: 20px;">Challenge Solved and Completion</div>
+                    <div class="completion-stats">
+                        <div class="stat-row">
+                            <div class="stat-badge easy" id="easySolved">2</div>
+                            <div class="stat-label">Easy</div>
+                            <div class="stat-bar">
+                                <div class="stat-bar-fill easy" id="easyBar" style="width: 40%"></div>
+                            </div>
+                        </div>
+                        <div class="stat-row">
+                            <div class="stat-badge medium" id="mediumSolved">1</div>
+                            <div class="stat-label">Medium</div>
+                            <div class="stat-bar">
+                                <div class="stat-bar-fill medium" id="mediumBar" style="width: 20%"></div>
+                            </div>
+                        </div>
+                        <div class="stat-row">
+                            <div class="stat-badge hard" id="hardSolved">1</div>
+                            <div class="stat-label">Hard</div>
+                            <div class="stat-bar">
+                                <div class="stat-bar-fill hard" id="hardBar" style="width: 10%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="overall-score">
+                    <div class="score-label">Overall Score:</div>
+                    <div class="score-value" id="totalScore">600</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="filters">
+            <div class="filters-label">Filters</div>
+            <div class="filter-options">
+                <div class="filter-option">
+                    <input type="checkbox" id="hideSolved">
+                    <label for="hideSolved">Hide Solved</label>
+                </div>
+                <div class="filter-option">
+                    <input type="checkbox" id="showBookmarked">
+                    <label for="showBookmarked">Show Bookmarked</label>
+                </div>
+                <div class="filter-option">
+                    <input type="checkbox" id="showAssigned">
+                    <label for="showAssigned">Show Assigned</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="challenge-section">
+            <div class="challenge-header">
+                <div class="challenge-title">Practice Challenge</div>
+                <div class="pagination" id="pagination"></div>
+            </div>
+            <div class="challenge-grid" id="challengeGrid"></div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">✕</button>
+            <h1 class="modal-title" id="modalTitle">Hidden Message</h1>
+
+            <div class="modal-grid">
+                <div class="modal-info">
+                    <div class="info-row">
+                        <div class="info-label">Category</div>
+                        <div class="info-value" id="modalCategory">Cryptography</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">Difficulty</div>
+                        <div class="info-value difficulty hard" id="modalDifficulty">Hard</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">Points</div>
+                        <div class="info-value" id="modalPoints">100</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">File</div>
+                        <div class="info-value">
+                            <a id="modalFile" href="#" download>Secret.txt</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="modal-description">
+                        <h3 class="description-title">Description:</h3>
+                        <p class="description-text" id="modalDescription">
+                            A mysterious message was intercepted, but it looks like nonsense at first glance.
+                        </p>
+                        <span class="read-more">Read more...</span>
+                    </div>
+
+                    <div class="modal-hint">
+                        <p class="hint-text"><strong>Hint:</strong> <span id="modalHint">Try analyzing character
+                                frequency and patterns</span></p>
+                    </div>
+
+                    <div class="flag-input-group">
+                        <label class="flag-label">Flag Format:</label>
+                        <input type="text" class="flag-input" placeholder="FLAG{your_answer_here}" id="flagInput">
+                    </div>
+
+                    <button class="submit-btn" id="submitFlag">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
