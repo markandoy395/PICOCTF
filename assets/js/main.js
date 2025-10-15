@@ -201,6 +201,12 @@ document.getElementById('hideSolved').addEventListener('change', applyFilters);
 document.getElementById('showBookmarked').addEventListener('change', applyFilters);
 document.getElementById('showAssigned').addEventListener('change', applyFilters);
 document.getElementById('categorySelect').addEventListener('change', filterByCategory);
+const menuToggle = document.getElementById('menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+
+menuToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('show');
+});
 
 // Initialize
 renderChallenges();
