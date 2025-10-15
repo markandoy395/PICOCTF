@@ -87,7 +87,12 @@ body.no-scroll {
   height: 3px;
   background: var(--neon-green);
 }
-
+.menu-toggle {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+  color: var(--secondary);
+}
 .container {
   max-width: 1400px;
   margin: 30px auto;
