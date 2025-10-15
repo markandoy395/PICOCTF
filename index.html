@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Practice - CTF Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
@@ -22,7 +25,7 @@
     <div class="container">
         <div class="progress-tracker">
             <div class="progress-header">
-                <span>📊</span>
+                <span><i class="fa-solid fa-bars-progress"></i></span>
                 <span>Progress Tracker</span>
             </div>
 
@@ -74,7 +77,10 @@
         </div>
 
         <div class="filters">
-            <div class="filters-label">Filters</div>
+            <div class="filters-label">
+                <i class="fa-solid fa-filter"></i>
+                <p>Filters</p>
+            </div>
             <div class="filter-options">
                 <div class="filter-option">
                     <input type="checkbox" id="hideSolved">
@@ -102,7 +108,7 @@
 
     <div class="modal-overlay" id="modalOverlay">
         <div class="modal-content">
-            <button class="modal-close" id="modalClose">✕</button>
+            <button class="modal-close" id="modalClose"><i class="fa-solid fa-xmark"></i></button>
             <h1 class="modal-title" id="modalTitle">Hidden Message</h1>
 
             <div class="modal-grid">
@@ -152,7 +158,8 @@
         </div>
     </div>
 
-    <script src="assets/js/main.js"></script>
+    <script type="module" src="assets/js/main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </body>
 

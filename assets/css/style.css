@@ -1,9 +1,14 @@
 * {
   margin: 0;
   padding: 0;
+
   box-sizing: border-box;
 }
-
+@font-face {
+  font-family: "Poppins";
+  src: url("../fonts/Poppins/Poppins-Regular.ttf") format("truetype");
+  font-weight: 400;
+}
 :root {
   --dark-navy: #0a1929;
   --navy-blue: #1a2942;
@@ -16,22 +21,29 @@
   --purple-light: #e8e3ff;
   --card-bg: #f5f5ff;
   --modal-overlay: rgba(0, 0, 0, 0.7);
+  --font-family: "Poppins", sans-serif;
 }
 
 body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: var(--font-family);
   background: #6b7280;
   color: #333;
+}
+body.no-scroll {
+  overflow: hidden;
 }
 
 .navbar {
   background: var(--dark-navy);
   padding: 0 40px;
   display: flex;
+  position: sticky;
+  top: 0;
   align-items: center;
   justify-content: space-between;
   height: 80px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  z-index: 100;
 }
 
 .logo {
@@ -230,6 +242,11 @@ body {
 .filters-label {
   font-size: 20px;
   font-weight: 600;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 
 .filter-options {
@@ -465,8 +482,17 @@ body {
 .modal-close:hover {
   background: #e5e7eb;
   color: #374151;
+  animation: rotate 0.5s linear;
 }
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
 
+  to {
+    transform: rotate(360deg);
+  }
+}
 .modal-title {
   font-size: 28px;
   font-weight: 600;
@@ -649,7 +675,6 @@ body {
     grid-template-columns: 1fr;
   }
 }
-
 @media (max-width: 768px) {
   .navbar {
     padding: 0 20px;
@@ -666,12 +691,38 @@ body {
 
   .filters {
     flex-direction: column;
-    gap: 15px;
+    gap: 10px;
     align-items: flex-start;
+  }
+
+  .filter-options {
+    width: 100%;
+    gap: 10px;
+    overflow: hidden;
+    flex-wrap: wrap;
+  }
+
+  .challenge-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+    padding: 15px 20px;
+  }
+
+  .challenge-title {
+    font-size: 20px;
+  }
+
+  .pagination {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
   }
 
   .challenge-grid {
     grid-template-columns: 1fr;
+    gap: 15px;
   }
 
   .score-value {
@@ -690,4 +741,18 @@ body {
     grid-template-columns: 1fr;
     gap: 8px;
   }
+}
+
+/* styles.css (or your existing CSS) */
+.solved {
+  opacity: 0.5;
+  pointer-events: none; /* Optional: disable clicks */
+  transition: opacity 0.3s ease;
+}
+
+.challenge-card.solved {
+  opacity: 0.5;
+  pointer-events: none; /* optional: prevent clicking solved challenges */
+  transition: opacity 0.3s ease;
+  filter: grayscale(80%); /* optional: make it look “completed” */
 }
